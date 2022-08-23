@@ -1,5 +1,6 @@
 package com.example.homework1_7m.presentation.ui.fragment.main
 
+import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -9,10 +10,8 @@ import com.example.homework1_7m.databinding.FragmentMainBinding
 import com.example.homework1_7m.domain.model.Note
 import com.example.homework1_7m.presentation.ui.fragment.main.adapter.NoteAdapter
 
-
 class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
 
-    private lateinit var viewModel: MainViewModel
     private val controller: NavController by lazy {
         val navHostFragment =
             requireActivity().supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
@@ -41,7 +40,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
     }
 
     private fun initViewModel() {
-        viewModel = ViewModelProvider(requireActivity())[MainViewModel::class.java]
     }
 
     private fun initAdapter() {

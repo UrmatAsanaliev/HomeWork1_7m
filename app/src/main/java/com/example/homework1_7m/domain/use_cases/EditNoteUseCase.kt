@@ -5,5 +5,5 @@ import com.example.homework1_7m.domain.repository.NoteRepository
 
 class EditNoteUseCase(private val repo: NoteRepository) {
 
-    fun editNote(note: Note) = repo.editNote(note.id, note)
+    fun editNote(id: Int, note: Note) = repo.editNote(id, note)
 }

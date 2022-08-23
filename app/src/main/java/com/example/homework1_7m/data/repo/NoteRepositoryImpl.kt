@@ -4,17 +4,19 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.example.homework1_7m.App
 import com.example.homework1_7m.data.mapper.NoteMapper
+import com.example.homework1_7m.data.room.NoteDao
 import com.example.homework1_7m.domain.model.Note
 import com.example.homework1_7m.domain.repository.NoteRepository
 import com.example.homework1_7m.utils.Resource
 import kotlinx.coroutines.Dispatchers
+import javax.inject.Inject
 
-class NoteRepositoryImpl: NoteRepository {
+class NoteRepositoryImpl @Inject constructor(
+    private val noteDao: NoteDao
+): NoteRepository {
 
 //DRY - don't repeat yourself
     private val noteMapper = NoteMapper()
-    private val noteDao = App.noteDao
-
 
     override fun addNote(note: Note): LiveData<Resource<Unit>> = liveData(Dispatchers.IO) {
         noteDao.addNote(noteMapper.noteToNoteEntity(note))

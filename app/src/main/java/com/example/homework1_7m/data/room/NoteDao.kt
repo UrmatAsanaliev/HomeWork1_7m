@@ -6,8 +6,8 @@ import com.example.homework1_7m.data.model.NoteEntity
 @Dao
 interface NoteDao {
 
-    @Query("SELECT * FROM 'note_db'")
-    fun getAllNotes() : List<NoteEntity>
+    @Query("SELECT * FROM note_db")
+    suspend fun getAllNotes() : List<NoteEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addNote(noteEntity: NoteEntity)
