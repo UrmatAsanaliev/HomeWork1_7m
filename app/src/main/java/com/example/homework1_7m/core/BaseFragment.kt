@@ -13,10 +13,11 @@ import com.example.homework1_7m.utils.UIState
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
+
 typealias Inflate<VB> = (LayoutInflater, ViewGroup?, Boolean) -> VB
 
 abstract class BaseFragment<VB : ViewBinding>(
-    val inflate: Inflate<VB>
+    private val inflate: Inflate<VB>
 ) : Fragment() {
 
     private var _binding: VB? = null
