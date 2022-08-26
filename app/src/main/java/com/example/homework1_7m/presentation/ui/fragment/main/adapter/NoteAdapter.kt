@@ -9,12 +9,16 @@ import com.example.homework1_7m.domain.model.Note
 
 class NoteAdapter: RecyclerView.Adapter<NoteAdapter.ViewHolder>(){
 
-    var list = listOf<Note>()
-        @SuppressLint("NotifyDataSetChanged")
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
+    private val list: MutableList<Note> = ArrayList()
+
+
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun setList(lst: List<Note>){
+        this.list.clear()
+        this.list.addAll(lst)
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
