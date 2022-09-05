@@ -1,6 +1,8 @@
 package com.example.homework1_7m.presentation.ui.fragment.main
 
+import android.os.Bundle
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -28,9 +30,9 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
     override fun setupObserver() {
         super.setupObserver()
         openAddNoteFragment()
-      //  getNote()
-      //  deleteNote()
-      //  upDateNote()
+        getNote()
+        deleteNote()
+        upDateNote()
     }
 
     private fun upDateNote() {
@@ -66,30 +68,30 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
     }
 
     private fun getNote() {
+        val bundle = arguments
+        val edTitle = bundle?.getString("edTitle")
+        val edDesc = bundle?.getString("edDesc")
 
-    }
-
-    private fun openAddNoteFragment() {
-      //  binding().btnAddNewNote.setOnClickListener{
-      //      findNavController().navigate(R.id.secondFragment)
-     //   }
-    }
-
-    private fun initViewModel() {
-        viewModel.getAllNotes()
-        var i = 0
-        binding().btnAddNewNote.setOnClickListener{
+        if (edTitle != null || edDesc != null) {
             val e = Date()
-            i++
             viewModel.addNote(
                 Note(
-                    title = "title $i",
-                    description = "desc $i",
+                    title = edTitle,
+                    description = edDesc,
                     creationDate = "$e"
                 )
             )
         }
+    }
 
+    private fun openAddNoteFragment() {
+        binding().btnAddNewNote.setOnClickListener{
+            findNavController().navigate(R.id.secondFragment)
+        }
+    }
+
+    private fun initViewModel() {
+        viewModel.getAllNotes()
 
         viewModel.addNoteLd.subscribe {
             when (it) {
