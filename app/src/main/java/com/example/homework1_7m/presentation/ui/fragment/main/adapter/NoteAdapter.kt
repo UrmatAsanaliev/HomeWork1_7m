@@ -4,20 +4,21 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.domain.domain.model.Note
 import com.example.homework1_7m.databinding.ItemNotesBinding
-import com.example.homework1_7m.domain.model.Note
 
 class NoteAdapter: RecyclerView.Adapter<NoteAdapter.ViewHolder>(){
 
     private val list: MutableList<Note> = ArrayList()
-
-
 
     @SuppressLint("NotifyDataSetChanged")
     fun setList(lst: List<Note>){
         this.list.clear()
         this.list.addAll(lst)
         notifyDataSetChanged()
+    }
+
+    fun deleteList(list: List<Note>) {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

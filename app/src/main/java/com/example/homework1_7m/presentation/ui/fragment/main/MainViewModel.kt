@@ -1,19 +1,16 @@
 package com.example.homework1_7m.presentation.ui.fragment.main
 
-import androidx.lifecycle.*
-import com.example.homework1_7m.core.BaseViewModel
-import com.example.homework1_7m.domain.model.Note
-import com.example.homework1_7m.domain.use_cases.AddNoteUseCase
-import com.example.homework1_7m.domain.use_cases.DeleteNoteUseCase
-import com.example.homework1_7m.domain.use_cases.EditNoteUseCase
-import com.example.homework1_7m.domain.use_cases.GetAllNotesUseCase
-import com.example.homework1_7m.utils.Resource
-import com.example.homework1_7m.utils.UIState
+import com.example.core.Const.UNKNOWN_ERROR
+import com.example.core.core.BaseViewModel
+import com.example.core.core.UIState
+import com.example.domain.domain.model.Note
+import com.example.domain.domain.use_cases.AddNoteUseCase
+import com.example.domain.domain.use_cases.DeleteNoteUseCase
+import com.example.domain.domain.use_cases.EditNoteUseCase
+import com.example.domain.domain.use_cases.GetAllNotesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -37,78 +34,54 @@ class MainViewModel @Inject constructor(
     val editNotesLd = _editNoteLd.asStateFlow()
 
     fun addNote(note: Note)  {
-        viewModelScope.launch(Dispatchers.IO) {
-            addNoteUseCase.addNote(note).collect {
-                when (it) {
-                    is Resource.Error -> {
-                        _addNoteLd.value = UIState.Error(it.message ?: "Unknown error!!")
-                    }
-                    is Resource.Loading -> {
-                        _addNoteLd.value = UIState.Loading()
-                    }
-                    is Resource.Success -> {
-                        if (it.data != null)
-                        _addNoteLd.value = UIState.Success(it.data)
-                    }
+            addNoteUseCase.addNote(note).getData(
+                { error ->
+                _addNoteLd.value = UIState.Error(error ?: UNKNOWN_ERROR)
+                }, {
+                _addNoteLd.value = UIState.Loading()
+                },
+                { data ->
+                _addNoteLd.value = data?.let { UIState.Success(it) }!!
                 }
-            }
-        }
+            )
     }
 
     fun getAllNotes()  {
-        viewModelScope.launch(Dispatchers.IO) {
-            getAllNotesUseCase.getAllNotes().collect {
-                when (it) {
-                    is Resource.Error -> {
-                        _getAllNotesLD.value = UIState.Error(it.message ?: "Unknown error!!")
-                    }
-                    is Resource.Loading -> {
-                        _getAllNotesLD.value = UIState.Loading()
-                    }
-                    is Resource.Success -> {
-                        if (it.data != null)
-                            _getAllNotesLD.value = UIState.Success(it.data)
-                    }
+            getAllNotesUseCase.getAllNotes().getData(
+                { error ->
+                    _getAllNotesLD.value = UIState.Error(error ?: UNKNOWN_ERROR)
+                }, {
+                    _getAllNotesLD.value = UIState.Loading()
+                },
+                { data ->
+                    _getAllNotesLD.value = data?.let { UIState.Success(it) }!!
                 }
-            }
-        }
+            )
     }
 
     fun deleteNote(note: Note)  {
-        viewModelScope.launch(Dispatchers.IO) {
-            deleteNoteUseCase.deleteNote(note).collect {
-                when (it) {
-                    is Resource.Error -> {
-                        _deleteNoteLd.value = UIState.Error(it.message ?: "Unknown error!!")
-                    }
-                    is Resource.Loading -> {
-                        _deleteNoteLd.value = UIState.Loading()
-                    }
-                    is Resource.Success -> {
-                        if (it.data != null)
-                            _deleteNoteLd.value = UIState.Success(it.data)
-                    }
+            deleteNoteUseCase.deleteNote(note).getData(
+                { error ->
+                    _deleteNoteLd.value = UIState.Error(error ?: UNKNOWN_ERROR)
+                }, {
+                    _deleteNoteLd.value = UIState.Loading()
+                },
+                { data ->
+                    _deleteNoteLd.value = data?.let { UIState.Success(it) }!!
                 }
-            }
-        }
+            )
     }
 
     fun editNote(id: Int, note: Note)  {
-        viewModelScope.launch(Dispatchers.IO) {
-            editNoteUseCase.editNote(id, note).collect {
-                when (it) {
-                    is Resource.Error -> {
-                        _editNoteLd.value = UIState.Error(it.message ?: "Unknown error!!")
-                    }
-                    is Resource.Loading -> {
-                        _editNoteLd.value = UIState.Loading()
-                    }
-                    is Resource.Success -> {
-                        if (it.data != null)
-                            _editNoteLd.value = UIState.Success(it.data)
-                    }
+            editNoteUseCase.editNote(id, note).getData(
+                { error ->
+                    _editNoteLd.value = UIState.Error(error ?: UNKNOWN_ERROR)
+                }, {
+                    _editNoteLd.value = UIState.Loading()
+                },
+                { data ->
+                    _editNoteLd.value = data?.let { UIState.Success(it) }!!
                 }
-            }
-        }
+            )
     }
 }

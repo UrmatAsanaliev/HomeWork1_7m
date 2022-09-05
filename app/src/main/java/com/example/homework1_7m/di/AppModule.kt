@@ -2,10 +2,10 @@ package com.example.homework1_7m.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.homework1_7m.data.repo.NoteRepositoryImpl
-import com.example.homework1_7m.data.room.NoteDao
-import com.example.homework1_7m.data.room.NoteDataBase
-import com.example.homework1_7m.domain.repository.NoteRepository
+import com.example.data.data.repo.NoteRepositoryImpl
+import com.example.data.data.room.NoteDao
+import com.example.data.data.room.NoteDataBase
+import com.example.domain.domain.repository.NoteRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
