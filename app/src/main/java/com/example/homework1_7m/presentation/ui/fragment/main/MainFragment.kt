@@ -1,11 +1,7 @@
 package com.example.homework1_7m.presentation.ui.fragment.main
 
-import android.os.Bundle
 import android.widget.Toast
-import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
-import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.example.core.core.BaseFragment
 import com.example.core.core.UIState
@@ -17,7 +13,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
 @AndroidEntryPoint
-class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
+class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::inflate),
+NoteAdapter.OnClick {
 
     private lateinit var adapter: NoteAdapter
     private val viewModel by viewModels<MainViewModel>()
@@ -31,40 +28,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
         super.setupObserver()
         openAddNoteFragment()
         getNote()
-        deleteNote()
-        upDateNote()
-    }
-
-    private fun upDateNote() {
-        viewModel.editNotesLd.subscribe {
-            when (it) {
-                is UIState.Error -> {
-                    Toast.makeText(requireContext(), it.error, Toast.LENGTH_SHORT).show()
-                }
-                is UIState.Loading -> {
-//                    TODO("show progress bar")
-                }
-                is UIState.Success -> {
-                    // adapter.setList()
-                }
-            }
-        }
-    }
-
-    private fun deleteNote() {
-        viewModel.deleteNotesLd.subscribe {
-            when (it) {
-                is UIState.Error -> {
-                    Toast.makeText(requireContext(), it.error, Toast.LENGTH_SHORT).show()
-                }
-                is UIState.Loading -> {
-//                    TODO("show progress bar")
-                }
-                is UIState.Success -> {
-                    // adapter.setList()
-                }
-            }
-        }
     }
 
     private fun getNote() {
@@ -120,11 +83,50 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
                 }
             }
         }
+
+        viewModel.editNotesLd.subscribe {
+            when (it) {
+                is UIState.Error -> {
+                    Toast.makeText(requireContext(), it.error, Toast.LENGTH_SHORT).show()
+                }
+                is UIState.Loading -> {
+//                    TODO("show progress bar")
+                }
+                is UIState.Success -> {
+                    // adapter.setList()
+                }
+            }
+        }
     }
 
-    private fun initAdapter() {
-        adapter = NoteAdapter()
+    private fun initAdapter() {8
+        adapter = NoteAdapter(this)
         binding().rvNotes.adapter = adapter
     }
+
+
+
+    private fun deleteNote(note: Note) {
+        viewModel.getAllNotes()
+
+        viewModel.deleteNotesLd.subscribe {
+            when (it) {
+                is UIState.Error -> {
+                    Toast.makeText(requireContext(), it.error, Toast.LENGTH_SHORT).show()
+                }
+                is UIState.Loading -> {
+//                    TODO("show progress bar")
+                }
+                is UIState.Success -> {
+                    // adapter.setList()
+                    viewModel.deleteNote(note)
+                }
+            }
+        }
+    }
+
+    override fun clickDelete(position: Int) {
+    }
+
 
 }

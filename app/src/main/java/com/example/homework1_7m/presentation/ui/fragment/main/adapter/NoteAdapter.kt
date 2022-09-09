@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.domain.model.Note
 import com.example.homework1_7m.databinding.ItemNotesBinding
 
-class NoteAdapter: RecyclerView.Adapter<NoteAdapter.ViewHolder>(){
+class NoteAdapter(private val click: OnClick): RecyclerView.Adapter<NoteAdapter.ViewHolder>(){
 
     private val list: MutableList<Note> = ArrayList()
 
@@ -18,7 +18,7 @@ class NoteAdapter: RecyclerView.Adapter<NoteAdapter.ViewHolder>(){
         notifyDataSetChanged()
     }
 
-    fun deleteList(list: List<Note>) {
+    fun getList(){
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -33,6 +33,10 @@ class NoteAdapter: RecyclerView.Adapter<NoteAdapter.ViewHolder>(){
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.onBind(list[position])
+        holder.itemView.setOnLongClickListener{
+            click.clickDelete(position)
+            return@setOnLongClickListener false
+        }
     }
 
     override fun getItemCount(): Int = list.size
@@ -44,5 +48,11 @@ class NoteAdapter: RecyclerView.Adapter<NoteAdapter.ViewHolder>(){
             binding.txtDesc.text = note.description
             binding.txtDate.text = note.creationDate
         }
+
+
     }
+      interface OnClick{
+          fun clickDelete(position: Int)
+      }
+
 }
