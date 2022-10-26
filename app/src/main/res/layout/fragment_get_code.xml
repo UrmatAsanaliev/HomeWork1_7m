@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.get_code.GetCodeFragment">
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:src="@drawable/log"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/todo" />
+
+    <TextView
+        android:id="@+id/tv_restore_pass"
+        android:layout_marginTop="@dimen/iv_tv_margin"
+        android:layout_width="@dimen/view_width"
+        android:layout_height="@dimen/view_height"
+        android:backgroundTint="@color/white"
+        android:text="@string/restore_password"
+        android:textColor="@color/custom_black"
+        android:textSize="@dimen/twenty_eight_sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="@dimen/overall_indent"
+        android:layout_marginRight="@dimen/overall_indent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_logo"
+        android:fontFamily="@font/sf_ui_display"/>
+
+    <LinearLayout
+        android:id="@+id/codeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/overall_indent"
+        android:layout_marginRight="@dimen/overall_indent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_restore_pass"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/digit1"
+            android:layout_width="@dimen/et_code_width"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/et_code_end"
+            android:layout_weight="1"
+            android:imeOptions="actionDone"
+            android:inputType="phone"
+            android:maxLength="2"
+            android:maxLines="1"
+            android:textAlignment="center"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor" />
+
+        <EditText
+            android:id="@+id/digit2"
+            android:layout_width="@dimen/et_code_width"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/et_code_end"
+            android:layout_weight="1"
+            android:imeOptions="actionDone"
+            android:inputType="phone"
+            android:maxLength="2"
+            android:maxLines="1"
+            android:textAlignment="center"
+            tools:ignore="Autofill,LabelFor" />
+
+        <EditText
+            android:id="@+id/digit3"
+            android:layout_width="@dimen/et_code_width"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/et_code_end"
+            android:layout_weight="1"
+            android:imeOptions="actionDone"
+            android:inputType="phone"
+            android:maxLength="2"
+            android:maxLines="1"
+            android:textAlignment="center"
+            tools:ignore="Autofill,LabelFor" />
+
+        <EditText
+            android:id="@+id/digit4"
+            android:layout_width="@dimen/et_code_width"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="phone"
+            android:imeOptions="actionDone"
+            android:layout_marginEnd="@dimen/et_code_end"
+            android:maxLength="2"
+            android:maxLines="1"
+            android:textAlignment="center"
+            tools:ignore="Autofill,LabelFor" />
+        <EditText
+            android:id="@+id/digit5"
+            android:layout_width="@dimen/et_code_width"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="phone"
+            android:imeOptions="actionDone"
+            android:layout_marginEnd="@dimen/et_code_end"
+            android:maxLength="2"
+            android:maxLines="1"
+            android:textAlignment="center"
+            tools:ignore="Autofill,LabelFor" />
+
+        <EditText
+            android:id="@+id/digit6"
+            android:layout_width="@dimen/et_code_width"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="phone"
+            android:imeOptions="actionDone"
+            android:maxLength="2"
+            android:maxLines="1"
+            android:textAlignment="center"
+            tools:ignore="Autofill,LabelFor" />
+
+    </LinearLayout>
+
+    <TextView
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/codeLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="@dimen/overall_indent"
+        android:layout_marginRight="@dimen/overall_indent"
+        android:id="@+id/tv_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tv_message_top"
+        android:textColor="@color/custom_black"
+        android:text="@string/code_message_text"
+        android:gravity="top"
+        android:fontFamily="@font/sf_ui_text"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:paddingHorizontal="@dimen/twenty_two_dp"
+        android:textAllCaps="false"
+        android:id="@+id/btnRestorePass"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/sixteen_sp"
+        android:layout_marginBottom="@dimen/fourty_dp"
+        app:cornerRadius="@dimen/btn_radius"
+        android:backgroundTint="@color/yellow"
+        android:text="@string/restore_password"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sixteen_sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:fontFamily="@font/sf_ui_text"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

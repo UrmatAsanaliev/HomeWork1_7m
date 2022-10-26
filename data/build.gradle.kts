@@ -62,4 +62,12 @@ dependencies {
     annotationProcessor (Dependencies.Room.roomCompiler)
     kapt(Dependencies.Room.roomKaptCompiler)
     implementation(Dependencies.Room.roomKtx)
+
+    // Networking
+    val retrofit_version = "2.9.0"
+    val okhttp_version = "4.7.2"
+    implementation ("com.squareup.retrofit2:converter-gson:$retrofit_version")
+    implementation ("com.squareup.retrofit2:retrofit:$retrofit_version")
+    implementation ("com.squareup.okhttp3:okhttp:$okhttp_version")
+    implementation ("com.squareup.okhttp3:logging-interceptor:$okhttp_version")
 }

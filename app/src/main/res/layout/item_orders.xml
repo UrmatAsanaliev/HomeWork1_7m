@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/bg_card"
+    android:layout_marginHorizontal="@dimen/twenty_dp"
+    android:layout_marginBottom="@dimen/twenty_dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:paddingBottom="@dimen/forty"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <TextView
+        android:layout_marginTop="@dimen/twenty_dp"
+        android:paddingVertical="@dimen/ten_dp"
+        android:id="@+id/txt_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_89475934"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="@dimen/sixteen_sp"
+        android:fontFamily="@font/s_f_u_i_text_bold"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:paddingVertical="@dimen/six_dp"
+        android:id="@+id/txt_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/date"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="@dimen/sixteen_sp"
+        android:fontFamily="@font/s_f_u_i__text_regular"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/txt_number"
+        android:layout_marginStart="@dimen/twenty_dp"/>
+
+    <TextView
+        android:paddingVertical="@dimen/six_dp"
+        android:id="@+id/txt_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/status"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="@dimen/sixteen_sp"
+        android:fontFamily="@font/s_f_u_i__text_regular"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/txt_date"
+        android:layout_marginStart="@dimen/twenty_dp"/>
+
+    <TextView
+        android:paddingVertical="@dimen/six_dp"
+        android:id="@+id/txt_number_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_03_06_2021"
+        android:textSize="@dimen/sixteen_sp"
+        android:fontFamily="@font/s_f_u_i_text_bold"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@id/txt_date"
+        app:layout_constraintBottom_toBottomOf="@id/txt_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/twenty_dp"/>
+
+    <TextView
+        android:paddingVertical="@dimen/six_dp"
+        android:id="@+id/txt_status_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/status_mode"
+        android:textSize="@dimen/sixteen_sp"
+        android:fontFamily="@font/s_f_u_i_text_bold"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@id/txt_status"
+        app:layout_constraintBottom_toBottomOf="@id/txt_status"
+        app:layout_constraintStart_toStartOf="@id/txt_number_date"
+        android:layout_marginEnd="@dimen/twenty_dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

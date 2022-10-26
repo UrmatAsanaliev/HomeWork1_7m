@@ -5,25 +5,343 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.ui.fragment.main.MainFragment">
+    tools:context=".ui.main.MainFragment">
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        tools:listitem="@layout/item_notes"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:id="@+id/rv_notes"
+    <ProgressBar
+        android:id="@+id/progress_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-
-    <com.google.android.material.button.MaterialButton
-        android:backgroundTint="@color/black"
-        android:id="@+id/btn_add_new_note"
-        android:text="@string/add_new_note"
-        android:layout_margin="40dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:layout_marginTop="@dimen/twelve_sp"
+        android:fontFamily="@font/s_f_u_i__text_regular"
+        android:textColor="@color/black"
+        android:drawablePadding="@dimen/twelve_sp"
+        android:paddingHorizontal="@dimen/twelve_dp"
+        android:paddingVertical="@dimen/sixteen_dp"
+        android:background="@drawable/bg_search"
+        android:drawableEnd="@drawable/ic_settings_1"
+        android:drawableStart="@drawable/ic_search"
+        android:id="@+id/ed_search"
+        android:hint="@string/search"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginHorizontal="@dimen/sixteen_dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="@dimen/twenty_dp"
+        app:layout_constraintTop_toBottomOf="@id/ed_search"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
 
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="@dimen/sixteen_dp"
+                android:backgroundTint="@color/gray"
+                android:layout_marginHorizontal="@dimen/sixteen_dp"
+                android:id="@+id/cv_news"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/img_background"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_________________________"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                    <ImageView
+                        android:id="@+id/img_news"
+                        android:layout_margin="@dimen/twenty_dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:src="@drawable/img3"
+                        android:layout_width="@dimen/one_hundred_eighty_dp"
+                        android:layout_height="@dimen/one_hundred_thirty_five_dp"/>
+
+                    <TextView
+                        android:id="@+id/txt_news_name"
+                        android:layout_marginStart="@dimen/thirty_two_dp"
+                        android:fontFamily="@font/s_f_u_i_text_bold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/thirty_four_sp"
+                        android:text="@string/new_era"
+                        app:layout_constraintBottom_toBottomOf="@id/img_news"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+
+                    <TextView
+                        android:id="@+id/txt_news_desc"
+                        android:layout_marginTop="@dimen/four_dp"
+                        android:textSize="@dimen/twelve_sp"
+                        android:text="@string/_2021"
+                        app:layout_constraintStart_toStartOf="@id/txt_news_name"
+                        app:layout_constraintTop_toBottomOf="@id/txt_news_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/txt_popular_brands"
+                android:layout_marginStart="@dimen/sixteen_dp"
+                android:layout_marginTop="@dimen/thirty_two_dp"
+                android:fontFamily="@font/s_f_u_i_text_bold"
+                android:textSize="@dimen/twenty_sp"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/popular_brends"
+                app:layout_constraintTop_toBottomOf="@id/cv_news"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/img_first_brand"
+                android:layout_marginTop="@dimen/twenty_dp"
+                android:background="@drawable/bg_orders"
+                android:padding="@dimen/twenty_six_dp"
+                app:layout_constraintEnd_toStartOf="@id/img_second_brand"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_popular_brands"
+                android:src="@drawable/new_era_logo_1"
+                android:layout_width="@dimen/eighty_two_dp"
+                android:layout_height="@dimen/eighty_two_dp"/>
+
+
+            <TextView
+                android:id="@+id/txt_first_brand"
+                android:layout_marginTop="@dimen/eight_dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/s_f_u_i_text_bold"
+                android:textSize="@dimen/twelve_sp"
+                android:text="@string/new_era"
+                app:layout_constraintEnd_toEndOf="@id/img_first_brand"
+                app:layout_constraintStart_toStartOf="@id/img_first_brand"
+                app:layout_constraintTop_toBottomOf="@id/img_first_brand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+            <ImageView
+                app:layout_constraintEnd_toStartOf="@id/img_third_brand"
+                android:id="@+id/img_second_brand"
+                android:background="@drawable/bg_orders"
+                android:padding="@dimen/twenty_six_dp"
+                android:src="@drawable/ic_subtract"
+                app:layout_constraintStart_toEndOf="@id/img_first_brand"
+                app:layout_constraintTop_toTopOf="@id/img_first_brand"
+                android:layout_width="@dimen/eighty_two_dp"
+                android:layout_height="@dimen/eighty_two_dp"/>
+
+            <TextView
+                android:id="@+id/txt_second_brand"
+                android:fontFamily="@font/s_f_u_i_text_bold"
+                android:textSize="@dimen/twelve_sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/eight_dp"
+                app:layout_constraintEnd_toEndOf="@id/img_second_brand"
+                app:layout_constraintTop_toBottomOf="@id/img_second_brand"
+                app:layout_constraintStart_toStartOf="@id/img_second_brand"
+                android:text="@string/adidas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                app:layout_constraintEnd_toStartOf="@id/img_forth_brand"
+                android:id="@+id/img_third_brand"
+                android:background="@drawable/bg_orders"
+                android:padding="@dimen/twenty_six_dp"
+                android:src="@drawable/ic_vector2"
+                app:layout_constraintStart_toEndOf="@id/img_second_brand"
+                app:layout_constraintTop_toTopOf="@id/img_second_brand"
+                android:layout_width="@dimen/eighty_two_dp"
+                android:layout_height="@dimen/eighty_two_dp"/>
+
+            <TextView
+                android:id="@+id/txt_third_brand"
+                android:textColor="@color/black"
+                android:textSize="@dimen/twelve_sp"
+                android:fontFamily="@font/s_f_u_i_text_bold"
+                android:layout_marginTop="@dimen/eight_dp"
+                android:text="@string/nike"
+                app:layout_constraintEnd_toEndOf="@id/img_third_brand"
+                app:layout_constraintTop_toBottomOf="@id/img_third_brand"
+                app:layout_constraintStart_toStartOf="@id/img_third_brand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/img_forth_brand"
+                android:background="@drawable/bg_orders"
+                android:padding="@dimen/twenty_six_dp"
+                android:src="@drawable/ic_vector"
+                app:layout_constraintStart_toEndOf="@id/img_third_brand"
+                app:layout_constraintTop_toTopOf="@id/img_third_brand"
+                android:layout_width="@dimen/eighty_two_dp"
+                android:layout_height="@dimen/eighty_two_dp"/>
+
+            <TextView
+                android:id="@+id/txt_forth_brand"
+                android:layout_marginTop="@dimen/eight_dp"
+                android:fontFamily="@font/s_f_u_i_text_bold"
+                android:textSize="@dimen/twelve_sp"
+                android:textColor="@color/black"
+                android:text="@string/vans"
+                app:layout_constraintEnd_toEndOf="@id/img_forth_brand"
+                app:layout_constraintStart_toStartOf="@id/img_forth_brand"
+                app:layout_constraintTop_toBottomOf="@id/img_forth_brand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:id="@+id/txt_bestsellers"
+                android:layout_marginTop="@dimen/twenty_eight_dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/s_f_u_i_text_bold"
+                android:textSize="@dimen/twenty_sp"
+                app:layout_constraintTop_toBottomOf="@id/txt_first_brand"
+                app:layout_constraintStart_toStartOf="@id/txt_popular_brands"
+                android:text="@string/bestsellers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/txt_watch_all_bestsellers"
+                android:fontFamily="@font/s_f_u_i_text_bold"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/twelve_sp"
+                app:layout_constraintEnd_toEndOf="@id/img_forth_brand"
+                app:layout_constraintBottom_toBottomOf="@id/txt_bestsellers"
+                app:layout_constraintTop_toTopOf="@id/txt_bestsellers"
+                android:text="@string/watch_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_bestsellers"
+                tools:listitem="@layout/item_bestsellers"
+                android:layout_marginTop="@dimen/twelve_dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/txt_bestsellers"
+                app:layout_constraintTop_toBottomOf="@id/txt_bestsellers"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_width="@dimen/zero"
+                android:layout_height="wrap_content"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_collab"
+                android:layout_marginTop="@dimen/twenty_dp"
+                android:layout_marginHorizontal="@dimen/sixteen_dp"
+                app:cardCornerRadius="@dimen/twenty_dp"
+                android:backgroundTint="@color/yellow"
+                app:layout_constraintTop_toBottomOf="@id/rv_bestsellers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/txt_collab_name"
+                        android:layout_marginStart="@dimen/eight_dp"
+                        android:layout_marginTop="@dimen/twelve_dp"
+                        android:fontFamily="@font/s_f_u_i_text_bold"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/thirty_sp"
+                        android:text="@string/supreme_new_era"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/txt_collab_desc"
+                        android:fontFamily="@font/s_f_u_i__text_regular"
+                        android:textSize="@dimen/thirty_sp"
+                        android:textColor="@color/white"
+                        android:text="@string/collaboration"
+                        app:layout_constraintTop_toBottomOf="@id/txt_collab_name"
+                        app:layout_constraintStart_toStartOf="@id/txt_collab_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <ImageView
+                        android:id="@+id/img_collab_models"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginTop="@dimen/forty_five_dp"
+                        android:layout_marginStart="@dimen/twelve_dp"
+                        android:src="@drawable/colab"
+                        android:layout_width="@dimen/three_hundred_thirty_two_dp"
+                        android:layout_height="@dimen/one_hundred_fifty_six_dp"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/txt_stocks"
+                android:fontFamily="@font/s_f_u_i_text_bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/thirty_four_dp"
+                app:layout_constraintTop_toBottomOf="@id/cv_collab"
+                app:layout_constraintStart_toStartOf="@id/txt_popular_brands"
+                android:textSize="@dimen/twenty_sp"
+                android:text="@string/stocks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:id="@+id/txt_watch_all_stocks"
+                android:fontFamily="@font/s_f_u_i_text_bold"
+                app:layout_constraintEnd_toEndOf="@id/txt_watch_all_bestsellers"
+                app:layout_constraintBottom_toBottomOf="@id/txt_stocks"
+                app:layout_constraintTop_toTopOf="@id/txt_stocks"
+                android:textSize="@dimen/twelve_sp"
+                android:textColor="@color/blue"
+                android:text="@string/watch_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginBottom="@dimen/twenty_dp"
+                android:layout_marginTop="@dimen/twelve_dp"
+                app:layout_constraintStart_toStartOf="@id/txt_stocks"
+                app:layout_constraintTop_toBottomOf="@id/txt_stocks"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_stocks"
+                android:layout_width="@dimen/zero"
+                android:layout_height="wrap_content"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

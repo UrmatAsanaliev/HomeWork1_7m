@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/gray"
+    android:layout_height="wrap_content"
+    tools:context=".ui.product_details.ProductDetailsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cap"
+            android:layout_marginVertical="@dimen/forty_dp"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/table_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sixteen_dp"
+            app:layout_constraintBottom_toBottomOf="@+id/cap"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp"
+            app:tabPaddingEnd="0dp"
+            app:tabPaddingStart="1dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/const_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/twenty_two_dp"
+            android:layout_marginTop="@dimen/twenty_six_dp"
+            android:backgroundTint="@color/white"
+            android:background="@drawable/bg_bestsellers"
+            app:layout_constraintTop_toBottomOf="@+id/cap"
+            tools:layout_editor_absoluteX="16dp">
+
+            <TextView
+                android:id="@+id/New_era"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/fourteen_dp"
+                android:layout_marginStart="@dimen/thirty_dp"
+                android:fontFamily="@font/s_f_u_i_text_bold"
+                android:text="@string/New_era"
+                android:textColor="@color/black"
+                android:textSize="@dimen/twenty_two_sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/_like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/fourteen_dp"
+                android:layout_marginEnd="@dimen/twenty_two_dp"
+                android:src="@drawable/ic_like"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/_golden"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/thirty_dp"
+                android:layout_marginVertical="@dimen/twelve_dp"
+                android:drawablePadding="@dimen/twenty_dp"
+                android:text="@string/Golden_State"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/New_era" />
+
+            <TextView
+                android:fontFamily="@font/s_f_u_i_text_bold"
+                android:id="@+id/txt_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/forty_dp"
+                android:layout_marginStart="@dimen/forty_dp"
+                android:layout_marginTop="@dimen/twenty_dp"
+                android:layout_marginBottom="@dimen/forty_dp"
+                android:text="@string/_2500_сом"
+                android:textColor="@color/yellow"
+                android:textSize="@dimen/twenty_eight_sp"
+                app:layout_constraintEnd_toEndOf="@id/_like"
+                app:layout_constraintTop_toBottomOf="@id/_golden" />
+
+            <TextView
+                android:id="@+id/_Size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/twenty_dp"
+                android:fontFamily="@font/s_f_u_i_text_bold"
+                android:text="@string/Размер"
+                android:textColor="@color/black"
+                android:textSize="@dimen/twenty_four_sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_price" />
+
+            <TextView
+                android:id="@+id/_S"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/twenty_eight_dp"
+                android:layout_marginVertical="@dimen/twenty_four_dp"
+                android:background="@drawable/circle"
+                android:fontFamily="@font/s_f_u_i_text_bold"
+                android:gravity="center"
+                android:src="@drawable/circle"
+                android:text="@string/S"
+                android:textColor="@color/black"
+                android:textSize="@dimen/twenty_two_sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/_Size" />
+
+            <TextView
+                android:id="@+id/_M"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/twenty_eight_dp"
+                android:background="@drawable/circle"
+                android:fontFamily="@font/s_f_u_i_text_bold"
+                android:gravity="center"
+                android:text="@string/M"
+                android:textColor="@color/black"
+                android:textSize="@dimen/twenty_two_sp"
+                app:layout_constraintStart_toEndOf="@id/_S"
+                app:layout_constraintTop_toTopOf="@id/_S" />
+
+            <TextView
+                android:id="@+id/_L"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/twenty_eight_dp"
+                android:background="@drawable/circle"
+                android:fontFamily="@font/s_f_u_i_text_bold"
+                android:gravity="center"
+                android:text="@string/L"
+                android:textColor="@color/black"
+                android:textSize="@dimen/twenty_two_sp"
+                app:layout_constraintStart_toEndOf="@id/_M"
+                app:layout_constraintTop_toBottomOf="@id/_M"
+                app:layout_constraintTop_toTopOf="@id/_M" />
+
+            <TextView
+                android:id="@+id/_XL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/twenty_eight_dp"
+                android:background="@drawable/circle"
+                android:fontFamily="@font/s_f_u_i_text_bold"
+                android:gravity="center"
+                android:text="@string/XL"
+                android:textColor="@color/black"
+                android:textSize="@dimen/twenty_two_sp"
+                app:layout_constraintStart_toEndOf="@id/_L"
+                app:layout_constraintTop_toBottomOf="@id/_L"
+                app:layout_constraintTop_toTopOf="@id/_L" />
+
+            <TextView
+                android:textColor="@color/black"
+                android:textSize="@dimen/fourteen_sp"
+                android:id="@+id/_des"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/twenty_six_dp"
+                android:layout_marginEnd="@dimen/eight_dp"
+                android:text="@string/Description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/_Size"
+                app:layout_constraintTop_toBottomOf="@id/_S" />
+
+            <TextView
+                android:id="@+id/_products"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/twenty_dp"
+                android:layout_marginVertical="@dimen/thirty_dp"
+                android:fontFamily="@font/s_f_u_i_text_bold"
+                android:text="@string/_Похожие_товары_"
+                android:textColor="@color/black"
+                android:textSize="@dimen/twenty_two_sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/_des" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="@dimen/twelve_dp"
+                android:layout_marginStart="@dimen/twenty_dp"
+                android:id="@+id/sells"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/_products"
+                tools:listitem="@layout/same_products" />
+
+            <com.google.android.material.button.MaterialButton
+                android:textAllCaps="false"
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/forty_dp"
+                android:layout_marginVertical="@dimen/forty_dp"
+                android:gravity="center"
+                android:paddingVertical="@dimen/sixteen_dp"
+                app:backgroundTint="@color/yellow"
+                app:cornerRadius="@dimen/forty_dp"
+                app:layout_constraintStart_toStartOf="@id/sells"
+                app:layout_constraintTop_toBottomOf="@id/sells"
+                tools:text="@string/_Добавить_в_корзину_" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

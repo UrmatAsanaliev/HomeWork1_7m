@@ -44,19 +44,6 @@ abstract class BaseFragment<VB : ViewBinding>(
     open fun setupObserver() {
     }
 
-    protected fun <T> StateFlow<UIState<T>>.subscribe(
-        state: Lifecycle.State = Lifecycle.State.STARTED,
-        action: (UIState<T>) -> Unit
-    ) {
-        lifecycleScope.launch {
-            repeatOnLifecycle(state) {
-                this@subscribe.collect {
-                    action(it)
-                }
-            }
-        }
-    }
-
 
     abstract fun setupUI()
 }

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <ImageView
+        android:padding="@dimen/twenty_dp"
+        android:background="@drawable/bg_radius"
+        android:id="@+id/img_caps"
+        android:layout_marginVertical="@dimen/ten_dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginHorizontal="@dimen/twenty_dp"
+        android:src="@drawable/img3"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="140dp"
+        android:layout_height="140dp"/>
+
+    <TextView
+        android:id="@+id/txt_name"
+        android:textColor="@color/black"
+        android:textSize="@dimen/twenty_one_sp"
+        android:layout_marginTop="@dimen/ten_dp"
+        android:text="@string/new_era"
+        app:layout_constraintTop_toBottomOf="@id/img_caps"
+        app:layout_constraintStart_toStartOf="@id/img_caps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:textColor="#6A6868"
+        android:textSize="@dimen/twelve_sp"
+        android:text="@string/san_fransisco_baseball"
+        android:layout_marginVertical="@dimen/four_dp"
+        app:layout_constraintStart_toStartOf="@+id/img_caps"
+        app:layout_constraintTop_toBottomOf="@id/txt_name"
+        android:id="@+id/txt_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:textColor="#FDDB16"
+        android:id="@+id/txt_price"
+        android:text="@string/summa"
+        app:layout_constraintTop_toBottomOf="@+id/txt_description"
+        app:layout_constraintStart_toStartOf="@id/img_caps"
+        android:layout_marginVertical="@dimen/two_dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:src="@drawable/ic_like"
+        app:layout_constraintTop_toTopOf="@id/txt_name"
+        app:layout_constraintEnd_toEndOf="@id/img_caps"
+        android:id="@+id/img_heart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

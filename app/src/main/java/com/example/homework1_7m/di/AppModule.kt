@@ -1,40 +1,87 @@
 package com.example.homework1_7m.di
 
-import android.content.Context
-import androidx.room.Room
-import com.example.data.data.repo.NoteRepositoryImpl
-import com.example.data.data.room.NoteDao
-import com.example.data.data.room.NoteDataBase
-import com.example.domain.domain.repository.NoteRepository
+import androidx.viewbinding.BuildConfig
+import com.example.core.Const
+import com.example.core.core.AppDispatcher
+import com.example.data.brand.data.BrandApi
+import com.example.data.brand.model.BrandDto
+import com.example.data.brand.repository.BrandRepositoryImpl
+import com.example.domain.brand.repo.BrandRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import okhttp3.*
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
-    @Singleton
     @Provides
-    fun provideNoteDatabase(@ApplicationContext context: Context) =
-        Room.databaseBuilder(
-            context,
-            NoteDataBase::class.java,
-            "note_database"
-        )
-            .allowMainThreadQueries()
+    @Singleton
+    fun okHttpClient(): OkHttpClient {
+//        return OkHttpClient.Builder().apply {
+//            if (BuildConfig.DEBUG) {
+//                addInterceptor(HttpLoggingInterceptor().apply {
+//                    level = HttpLoggingInterceptor.Level.BODY
+//                })
+//            }
+//            addInterceptor(object : Interceptor {
+//                override fun intercept(chain: Interceptor.Chain): Response {
+//                    val original: Request = chain.request()
+//                    val originalHttpUrl: HttpUrl = original.url
+//
+//                    val url = originalHttpUrl.newBuilder()
+//                        .addQueryParameter("api_key", BuildConfig.LIBRARY_PACKAGE_NAME)
+//                        .build()
+//                    val requestBuilder: Request.Builder = original.newBuilder()
+//                        .url(url)
+//                    val request: Request = requestBuilder.build()
+//                    return chain.proceed(request)
+//                }
+//            })
+//        }.build()
+        val levelType: HttpLoggingInterceptor.Level = if (BuildConfig.DEBUG)
+            HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+
+        val logging = HttpLoggingInterceptor()
+        logging.setLevel(levelType)
+
+        return OkHttpClient.Builder()
+            .addInterceptor(logging)
             .build()
+    }
 
-    @Singleton
     @Provides
-    fun provideNoteDao(noteDataBase: NoteDataBase) = noteDataBase.noteDao()
+    @Singleton
+    fun retrofitBooks(okHttpClient: OkHttpClient): BrandApi {
+        return Retrofit.Builder()
+            .baseUrl(Const.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(okHttpClient)
+            .build()
+            .create(BrandApi::class.java)
+    }
 
-    @Singleton
     @Provides
-    fun provideNoteRepository(noteDao: NoteDao): NoteRepository {
-        return NoteRepositoryImpl(noteDao)
+    @Singleton
+    fun bookService(retrofit: Retrofit): BrandDto {
+        return retrofit.create(BrandDto::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideMovieRepository(api: BrandApi): BrandRepository {
+        return BrandRepositoryImpl(api)
+    }
+
+    @Provides
+    @Singleton
+    fun provideAppDispatcher(): com.example.core.core.Dispatcher {
+        return AppDispatcher()
     }
 }

@@ -66,6 +66,24 @@ dependencies {
     // Coroutines
     implementation (Dependencies.Coroutines.kotlinxCoroutines)
 
+    //Viewpager Implementation
+    implementation ("androidx.viewpager2:viewpager2:1.0.0")
+
+    //CircleIndicator
+    implementation ("me.relex:circleindicator:2.1.6")
+
+    //glide dependency
+    implementation ("com.github.bumptech.glide:glide:4.13.2")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.13.2")
+
+    // Networking
+    val retrofit_version = "2.9.0"
+    val okhttp_version = "4.7.2"
+    implementation ("com.squareup.retrofit2:converter-gson:$retrofit_version")
+    implementation ("com.squareup.retrofit2:retrofit:$retrofit_version")
+    implementation ("com.squareup.okhttp3:okhttp:$okhttp_version")
+    implementation ("com.squareup.okhttp3:logging-interceptor:$okhttp_version")
+
     // Dagger-Hilt
     implementation (Dependencies.DaggerHilt.daggerHiltAndroid)
     kapt (Dependencies.DaggerHilt.daggerHiltCompiler)

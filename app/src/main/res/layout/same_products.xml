@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_marginEnd="@dimen/sixteen_dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:padding="@dimen/twenty_dp"
+        android:background="@drawable/bg_card"
+        android:id="@+id/blue_cap"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/cap"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/_adidas"
+        android:text="@string/Adidas"
+        android:layout_marginVertical="@dimen/eighteen_dp"
+        android:textSize="@dimen/eighteen_sp"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/blue_cap"
+        app:layout_constraintTop_toBottomOf="@id/blue_cap"/>
+
+    <TextView
+        android:id="@+id/_name_pro"
+        android:text="@string/San_francisco_baseball"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/_adidas"
+        app:layout_constraintStart_toStartOf="@id/_adidas" />
+
+    <TextView
+        android:fontFamily="@font/s_f_u_i_text_bold"
+        android:id="@+id/sale"
+        android:text="@string/_3800_som_"
+        android:layout_marginVertical="@dimen/two_dp"
+        android:textSize="@dimen/twenty_two_sp"
+        android:textColor="@color/yellow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/_adidas"
+        app:layout_constraintTop_toBottomOf="@id/_name_pro"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
