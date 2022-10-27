@@ -25,7 +25,6 @@
         android:paddingHorizontal="@dimen/twelve_dp"
         android:paddingVertical="@dimen/sixteen_dp"
         android:background="@drawable/bg_search"
-        android:drawableEnd="@drawable/ic_settings_1"
         android:drawableStart="@drawable/ic_search"
         android:id="@+id/ed_search"
         android:hint="@string/search"
@@ -34,6 +33,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <ImageView
+        android:id="@+id/img_sort"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/ic_settings_1"
+        app:layout_constraintBottom_toBottomOf="@id/ed_search"
+        app:layout_constraintTop_toTopOf="@id/ed_search"
+        app:layout_constraintEnd_toEndOf="@+id/ed_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scroll_view"
         app:layout_constraintBottom_toBottomOf="parent"

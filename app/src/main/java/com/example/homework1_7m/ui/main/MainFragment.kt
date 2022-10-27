@@ -32,6 +32,9 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding:: inf
         adapter = MainAdapter(this, arrayListOf())
         binding().rvBestsellers.adapter = adapter
 
+        binding().imgSort.setOnClickListener{
+            findNavController().navigate(R.id.sortFragment)
+        }
     }
 
     override fun onClickedItem(id: Int) {
