@@ -89,7 +89,7 @@
 
     <TextView
         app:layout_constraintTop_toTopOf="@id/not_register"
-        android:id="@+id/register_"
+        android:id="@+id/txt_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
@@ -110,7 +110,7 @@
 
     <TextView
         android:id="@+id/txt_reestablish"
-        app:layout_constraintStart_toStartOf="@+id/register_"
+        app:layout_constraintStart_toStartOf="@+id/txt_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/registration"

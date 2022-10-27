@@ -102,4 +102,5 @@
     <string name="_basket_txt">Basket</string>
     <string name="profile_">Profile</string>
     <string name="bestsellers__">Bestsellers</string>
+    <string name="confirm_password">Подтвердить пароль</string>
 </resources>

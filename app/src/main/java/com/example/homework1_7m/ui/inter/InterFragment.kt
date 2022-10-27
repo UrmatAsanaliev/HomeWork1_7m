@@ -9,7 +9,7 @@ class InterFragment : BaseFragment<FragmentInterBinding>(FragmentInterBinding::i
 
     override fun setupUI() {
 
-        binding().register.setOnClickListener{
+        binding().txtRegister.setOnClickListener{
             findNavController().navigate(R.id.secondFragment)
         }
 
@@ -17,6 +17,9 @@ class InterFragment : BaseFragment<FragmentInterBinding>(FragmentInterBinding::i
             findNavController().navigate(R.id.restorePasswordFragment)
         }
 
-    }
+        binding().materialButton.setOnClickListener {
+            findNavController().navigate(R.id.mainFragment)
+        }
 
+    }
 }
