@@ -6,7 +6,16 @@ import com.example.core.core.AppDispatcher
 import com.example.data.brand.data.BrandApi
 import com.example.data.brand.model.BrandDto
 import com.example.data.brand.repository.BrandRepositoryImpl
+import com.example.data.caps.data.CapsApi
+import com.example.data.caps.model.CapsDto
+import com.example.data.caps.repo.CapsRepositoryImpl
+import com.example.data.users.data.UserApi
+import com.example.data.users.model.UserDto
+import com.example.data.users.repo.UserRepositoryImpl
 import com.example.domain.brand.repo.BrandRepository
+import com.example.domain.caps.repository.CapsRepository
+import com.example.domain.users.repository.UserRepository
+import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,6 +24,7 @@ import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import javax.inject.Singleton
 
 @Module
@@ -58,7 +68,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun retrofitBooks(okHttpClient: OkHttpClient): BrandApi {
+    fun retrofitBrand(okHttpClient: OkHttpClient): BrandApi {
         return Retrofit.Builder()
             .baseUrl(Const.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -69,14 +79,61 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun bookService(retrofit: Retrofit): BrandDto {
+    fun retrofitCaps(okHttpClient: OkHttpClient): CapsApi {
+        return Retrofit.Builder()
+            .baseUrl(Const.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(okHttpClient)
+            .build()
+            .create(CapsApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun retrofitUsers(okHttpClient: OkHttpClient) : UserApi {
+        return Retrofit.Builder()
+            .baseUrl(Const.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(okHttpClient)
+            .build()
+            .create(UserApi::class.java)
+    }
+
+
+    @Provides
+    @Singleton
+    fun brandService(retrofit: Retrofit): BrandDto {
         return retrofit.create(BrandDto::class.java)
     }
 
     @Provides
     @Singleton
-    fun provideMovieRepository(api: BrandApi): BrandRepository {
+    fun capsService(retrofit: Retrofit) : CapsDto {
+        return retrofit.create(CapsDto::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun userService(retrofit: Retrofit) : UserDto {
+        return retrofit.create(UserDto::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideBrandRepository(api: BrandApi): BrandRepository {
         return BrandRepositoryImpl(api)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCapsRepository(api: CapsApi): CapsRepository {
+        return CapsRepositoryImpl(api)
+    }
+
+    @Provides
+    @Singleton
+    fun provideUserRepository(api: UserApi) : UserRepository {
+        return UserRepositoryImpl(api)
     }
 
     @Provides
