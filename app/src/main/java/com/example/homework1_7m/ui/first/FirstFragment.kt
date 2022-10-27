@@ -10,8 +10,14 @@ class FirstFragment : BaseFragment<FragmentFirstBinding>(FragmentFirstBinding::i
 
     override fun setupUI() {
         binding().signUp.setOnClickListener {
+            findNavController().navigate(R.id.interFragment)
+        }
+
+        binding().register.setOnClickListener {
             findNavController().navigate(R.id.secondFragment)
         }
+
+
     }
 
 }
