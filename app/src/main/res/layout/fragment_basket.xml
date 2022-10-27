@@ -114,16 +114,17 @@
             />
 
         <Button
+
             android:id="@+id/bottom"
             android:layout_width="@dimen/zero_dp"
             android:layout_height="wrap_content"
             android:text="@string/buy"
             android:textColor="@color/white"
             android:background="@drawable/button_dw"
-            android:layout_marginBottom="@dimen/forty"
+            android:layout_marginVertical="@dimen/forty_dp"
             android:layout_marginStart="@dimen/forty"
             android:layout_marginEnd="@dimen/forty"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_delivery"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             />

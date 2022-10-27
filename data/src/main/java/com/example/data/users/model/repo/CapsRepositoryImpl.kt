@@ -1,4 +1,4 @@
-package com.example.data.caps.repo
+package com.example.data.users.model.repo
 
 import com.example.core.Resource
 import com.example.data.caps.data.CapsApi

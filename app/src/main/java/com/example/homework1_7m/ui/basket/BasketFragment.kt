@@ -7,6 +7,7 @@ class BasketFragment : BaseFragment<FragmentBasketBinding>(FragmentBasketBinding
 
 
     override fun setupUI() {
+
     }
 
 }
