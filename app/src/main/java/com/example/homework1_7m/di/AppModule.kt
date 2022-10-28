@@ -8,7 +8,7 @@ import com.example.data.brand.model.BrandDto
 import com.example.data.brand.repository.BrandRepositoryImpl
 import com.example.data.caps.data.CapsApi
 import com.example.data.caps.model.CapsDto
-import com.example.data.users.model.repo.CapsRepositoryImpl
+import com.example.data.caps.repo.CapsRepositoryImpl
 import com.example.data.users.data.UserApi
 import com.example.data.users.model.UserDto
 import com.example.data.users.repo.UserRepositoryImpl

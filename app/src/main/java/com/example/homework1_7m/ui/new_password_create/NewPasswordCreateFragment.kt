@@ -4,8 +4,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.core.core.BaseFragment
 import com.example.homework1_7m.R
 import com.example.homework1_7m.databinding.FragmentNewPasswordCreateBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class NewPasswordCreateFragment : BaseFragment<FragmentNewPasswordCreateBinding>(FragmentNewPasswordCreateBinding::inflate) {
 
 

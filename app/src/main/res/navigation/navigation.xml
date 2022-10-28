@@ -6,11 +6,6 @@
     app:startDestination="@id/firstFragment">
 
     <fragment
-        android:id="@+id/authFragment2"
-        android:name="com.example.homework1_7m.ui.auth.AuthFragment"
-        android:label="fragment_auth"
-        tools:layout="@layout/fragment_auth" />
-    <fragment
         android:id="@+id/basketFragment"
         android:name="com.example.homework1_7m.ui.basket.BasketFragment"
         android:label="fragment_basket"

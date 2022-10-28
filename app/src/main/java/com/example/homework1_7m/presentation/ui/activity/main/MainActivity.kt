@@ -47,7 +47,6 @@ class MainActivity : AppCompatActivity() {
             navController.addOnDestinationChangedListener { _, _, _ ->
                 if (navController.currentDestination?.id == R.id.firstFragment
                     || navController.currentDestination?.id == R.id.secondFragment
-                    || navController.currentDestination?.id == R.id.authFragment2
                     || navController.currentDestination?.id == R.id.restorePasswordFragment
                     || navController.currentDestination?.id == R.id.thirdFragment
                     || navController.currentDestination?.id == R.id.getCodeFragment

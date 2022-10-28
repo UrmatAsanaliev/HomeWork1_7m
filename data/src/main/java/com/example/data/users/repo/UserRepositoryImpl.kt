@@ -1,7 +1,6 @@
 package com.example.data.users.repo
 
 import com.example.core.Resource
-import com.example.data.brand.model.toBrand
 import com.example.data.users.data.UserApi
 import com.example.data.users.model.*
 import com.example.domain.users.model.*
@@ -16,11 +15,10 @@ class UserRepositoryImpl @Inject constructor(
     private val api: UserApi
 ) : UserRepository {
 
-
-    override suspend fun postTokenObtainPair(): Flow<Resource<TokenObtainPair>> = flow {
+    override suspend fun postTokenObtainPair(tokenObtainPair: TokenObtainPair): Flow<Resource<TokenObtainPair>> = flow {
         try {
             emit(Resource.Loading())
-            val list = api.postTokenObtainPair().toTokenObtainPair()
+            val list = api.postTokenObtainPair(tokenObtainPair)
             emit(Resource.Success(list))
         } catch (e : HttpException) {
             emit(
@@ -32,10 +30,10 @@ class UserRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun postTokenRefresh(): Flow<Resource<TokenRefresh>> = flow {
+    override suspend fun postTokenRefresh(tokenRefresh: TokenRefresh): Flow<Resource<TokenRefresh>> = flow {
         try {
             emit(Resource.Loading())
-            val list = api.postTokenRefresh().toTokenRefresh()
+            val list = api.postTokenRefresh(tokenRefresh)
             emit(Resource.Success(list))
         } catch (e : HttpException) {
             emit(
@@ -47,10 +45,10 @@ class UserRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun postLogin(): Flow<Resource<Login>> = flow {
+    override suspend fun postLogin(login: Login): Flow<Resource<Login>> = flow {
         try {
             emit(Resource.Loading())
-            val list = api.postLogin().toLogin()
+            val list = api.postLogin(login)
             emit(Resource.Success(list))
         } catch (e : HttpException) {
             emit(
@@ -62,10 +60,10 @@ class UserRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun postNewPassword(): Flow<Resource<SetNewPassword>> = flow {
+    override suspend fun postNewPassword(newPassword: SetNewPassword): Flow<Resource<SetNewPassword>> = flow {
         try {
             emit(Resource.Loading())
-            val list = api.postNewPassword().toSetNewPassword()
+            val list = api.postNewPassword(newPassword)
             emit(Resource.Success(list))
         } catch (e : HttpException) {
             emit(
@@ -110,10 +108,10 @@ class UserRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun patchUser(): Flow<Resource<User>> = flow {
+    override suspend fun patchUser(user: User): Flow<Resource<User>> = flow {
         try {
             emit(Resource.Loading())
-            val list = api.patchUser().toUser()
+            val list = api.patchUser(user)
             emit(Resource.Success(list))
         } catch (e : HttpException) {
             emit(
@@ -125,25 +123,25 @@ class UserRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun postRegister(): Flow<Resource<Registration>> = flow {
+    override suspend fun postRegister(registration: Registration): Flow<Resource<Registration>> = flow {
         try {
             emit(Resource.Loading())
-            val list = api.postRegister().toRegistration()
+            val list = api.postRegister(registration)
             emit(Resource.Success(list))
         } catch (e : HttpException) {
             emit(
-                Resource.Error("Unknown error!!!"
-                )
+                Resource.Error("Unknown error!!!")
             )
         } catch (e: IOException) {
-            emit(Resource.Error("Unknown Error!!!"))
+            emit(Resource.Error("Произошла ошибка!!!")
+            )
         }
     }
 
-    override suspend fun postResetPasswordEmail(): Flow<Resource<ResetPasswordEmailRequest>> = flow {
+    override suspend fun postResetPasswordEmail(resetPasswordEmailRequest: ResetPasswordEmailRequest): Flow<Resource<ResetPasswordEmailRequest>> = flow {
         try {
             emit(Resource.Loading())
-            val list = api.postResetPasswordEmail().toResetPasswordEmailRequest()
+            val list = api.postResetPasswordEmail(resetPasswordEmailRequest)
             emit(Resource.Success(list))
         } catch (e : HttpException) {
             emit(

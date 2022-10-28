@@ -14,7 +14,7 @@ abstract class BaseViewModel(
 ) : ViewModel() {
 
     fun launchOnBack(coroutine: suspend CoroutineScope.() -> Unit) =
-        launchOnViewModelScope(dispatcher.io, coroutine)
+        launchOnViewModelScope(dispatcher.main, coroutine)
 
 
     private fun launchOnViewModelScope(
