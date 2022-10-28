@@ -11,6 +11,8 @@ import com.example.core.Const
 import com.example.core.Resource
 import com.example.core.core.BaseFragment
 import com.example.domain.brand.model.Brand
+import com.example.domain.caps.model.Caps
+import com.example.domain.caps.model.Caps2
 import com.example.homework1_7m.R
 import com.example.homework1_7m.databinding.FragmentBestsellersBinding
 import com.example.homework1_7m.ui.main.MainAdapter
@@ -42,7 +44,7 @@ class BestsellersFragment : BaseFragment<FragmentBestsellersBinding>(FragmentBes
                     when (it) {
                         is Resource.Success -> {
                             binding().progressBar.visibility = View.GONE
-                            it.data?.let { brands -> renderList(brands) }
+                            it.data?.let { brands ->  }
                             binding().progressBar.visibility = View.VISIBLE
                         }
                         is Resource.Loading -> {
@@ -57,7 +59,7 @@ class BestsellersFragment : BaseFragment<FragmentBestsellersBinding>(FragmentBes
         }
     }
 
-    private fun renderList(brand: List<Brand>) {
+    private fun renderList(brand: List<Caps2>) {
         adapter.addData(brand)
     }
 }

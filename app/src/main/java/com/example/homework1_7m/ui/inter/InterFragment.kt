@@ -91,7 +91,7 @@ class InterFragment : BaseFragment<FragmentInterBinding>(FragmentInterBinding::i
     }
     fun onClick(){
         binding().txtRegister.setOnClickListener{
-            findNavController().navigate(R.id.secondFragment)
+            findNavController().navigate(R.id.thirdFragment)
         }
 
         binding().txtReestablish.setOnClickListener {

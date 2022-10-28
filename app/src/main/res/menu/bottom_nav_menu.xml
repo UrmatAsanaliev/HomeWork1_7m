@@ -6,7 +6,7 @@
         android:title="@string/title_home" />
 
     <item
-        android:id="@+id/basketFragment"
+        android:id="@+id/basketOriginFragment"
         android:icon="@drawable/ic_basket_logo"
         android:title="@string/_basket_txt" />
 

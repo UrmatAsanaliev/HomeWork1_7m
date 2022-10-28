@@ -61,6 +61,7 @@
             android:layout_height="wrap_content"/>
 
         <ImageView
+            android:id="@+id/img_back"
             android:layout_width="@dimen/twenty_eight_dp"
             android:layout_height="@dimen/twenty_eight_dp"
             android:layout_marginStart="@dimen/twenty_eight_dp"

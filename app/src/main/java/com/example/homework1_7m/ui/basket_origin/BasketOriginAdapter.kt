@@ -1,4 +1,4 @@
-package com.example.homework1_7m.ui.main
+package com.example.homework1_7m.ui.basket_origin
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -6,24 +6,22 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.domain.brand.model.Brand
-import com.example.domain.caps.model.Caps
 import com.example.domain.caps.model.Caps2
-import com.example.homework1_7m.databinding.ItemBestsellersBinding
+import com.example.homework1_7m.databinding.ItemCapsBinding
 
-class MainAdapter(
-    private val listener : BrandItemListener,
+class BasketOriginAdapter(
+    private val listener : BasketOriginAdapter.BasketOriginItemListener,
     private val brandList: ArrayList<Caps2>
-) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<BasketOriginAdapter.ViewHolder>() {
 
-    interface BrandItemListener {
+    interface BasketOriginItemListener {
         fun onClickedItem(id: Int)
     }
 
 
     inner class ViewHolder(
-        private val listener: BrandItemListener,
-        private val binding: ItemBestsellersBinding
+        private val listener: BasketOriginItemListener,
+        private val binding: ItemCapsBinding
     ) : RecyclerView.ViewHolder(binding.root), View.OnClickListener {
         private lateinit var brand: Caps2
         init {
@@ -31,11 +29,8 @@ class MainAdapter(
         }
         fun onBind(brand: Caps2) {
             this.brand = brand
-            binding.rvItemForBestsellers.txtPriceModel.text = brand.price.toString()
-            binding.rvItemForBestsellers.txtDescModel.text = brand.description
-            binding.rvItemForBestsellers.txtNameModel.text = brand.name
-            Glide.with(binding.rvItemForBestsellers.imgModel).load(brand.image)
-            .into(binding.rvItemForBestsellers.imgModel)
+            Glide.with(binding.imgCaps).load(brand.image)
+                .into(binding.imgCaps)
         }
 
         override fun onClick(p0: View?) {
@@ -44,7 +39,7 @@ class MainAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ItemBestsellersBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemCapsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(listener, binding)
     }
 

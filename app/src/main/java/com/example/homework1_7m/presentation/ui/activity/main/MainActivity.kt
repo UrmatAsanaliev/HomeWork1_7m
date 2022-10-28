@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             val appBarConfiguration = AppBarConfiguration(
                 setOf(
                     R.id.firstFragment,
-                    R.id.basketFragment,
+                    R.id.basketOriginFragment,
                     R.id.bestsellersFragment,
                     R.id.myAccFragment
                 )
@@ -46,12 +46,12 @@ class MainActivity : AppCompatActivity() {
 
             navController.addOnDestinationChangedListener { _, _, _ ->
                 if (navController.currentDestination?.id == R.id.firstFragment
-                    || navController.currentDestination?.id == R.id.secondFragment
                     || navController.currentDestination?.id == R.id.restorePasswordFragment
                     || navController.currentDestination?.id == R.id.thirdFragment
                     || navController.currentDestination?.id == R.id.getCodeFragment
                     || navController.currentDestination?.id == R.id.interFragment
                     || navController.currentDestination?.id == R.id.newPasswordCreateFragment
+                    || navController.currentDestination?.id == R.id.sortFragment
                 ) {
                     binding.navView.visibility = View.GONE
                 } else {

@@ -11,6 +11,8 @@ import com.example.core.Const
 import com.example.core.Resource
 import com.example.core.core.BaseFragment
 import com.example.domain.brand.model.Brand
+import com.example.domain.caps.model.Caps
+import com.example.domain.caps.model.Caps2
 import com.example.homework1_7m.R
 import com.example.homework1_7m.databinding.FragmentMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,6 +24,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding:: inf
 
     private val viewModel: MainViewModel by viewModels()
     private lateinit var adapter : MainAdapter
+    private val list = ArrayList<Caps2>()
 
 
     override fun setupUI() {
@@ -35,15 +38,21 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding:: inf
         binding().imgSort.setOnClickListener{
             findNavController().navigate(R.id.sortFragment)
         }
+
+
+        val listForSize = ArrayList<Int>()
+        listForSize.add(2)
+
+        list.add(Caps2(1, "New Era",
+            "https://cdn1.ozone.ru/s3/multimedia-y/6063710134.jpg",
+            "new Era", 2300, "20.20.2002", "20.20.2020", 2350, 2, listForSize))
+        adapter.addData(list)
+
     }
 
     override fun onClickedItem(id: Int) {
-        binding().txtWatchAllBestsellers.setOnClickListener {
-            findNavController().navigate(
-                R.id.bestsellersFragment,
-                bundleOf(Const.PARAM_MOVIE_ID to id)
-            )
-        }
+            findNavController().navigate(R.id.productDetailsFragment,
+                bundleOf(Const.PARAM_MOVIE_ID to id))
     }
 
 
@@ -71,7 +80,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding:: inf
         }
     }
 
-    private fun renderList(brand: List<Brand>) {
-        adapter.addData(brand)
+    private fun renderList(brand: List<Caps>) {
+        adapter.addData(list)
     }
 }
