@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "165516794261",
+    "project_id": "kepkiapp",
+    "storage_bucket": "kepkiapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165516794261:android:5692fb8ad25a56e5017e9c",
+        "android_client_info": {
+          "package_name": "com.example.homework1_7m"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "165516794261-d0p8ui936kn5jhgidds58gurqc8q8u0s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjNwMBUFlp4xwmrcAsaPUyu8pLvSRGvFU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "165516794261-d0p8ui936kn5jhgidds58gurqc8q8u0s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
