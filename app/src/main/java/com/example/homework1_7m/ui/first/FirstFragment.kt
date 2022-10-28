@@ -14,7 +14,7 @@ class FirstFragment : BaseFragment<FragmentFirstBinding>(FragmentFirstBinding::i
         }
 
         binding().register.setOnClickListener {
-            findNavController().navigate(R.id.secondFragment)
+            findNavController().navigate(R.id.thirdFragment)
         }
 
 

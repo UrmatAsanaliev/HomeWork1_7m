@@ -103,4 +103,5 @@
     <string name="profile_">Profile</string>
     <string name="bestsellers__">Bestsellers</string>
     <string name="confirm_password">Подтвердить пароль</string>
+    <string name="email_adress">Почта</string>
 </resources>

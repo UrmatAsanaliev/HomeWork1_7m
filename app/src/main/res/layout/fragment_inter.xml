@@ -194,6 +194,7 @@
         tools:ignore="MissingConstraints" />
 
     <ImageView
+        android:id="@+id/img_google"
         android:background="@drawable/bg_orders"
         android:elevation="1dp"
         android:backgroundTint="@color/white"

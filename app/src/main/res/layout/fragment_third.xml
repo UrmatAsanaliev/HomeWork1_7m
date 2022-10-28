@@ -51,6 +51,7 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="0dp" />
     <EditText
+        android:inputType="textEmailAddress"
         android:drawableStart="@drawable/ic_phone"
         android:id="@+id/phone_number"
         android:layout_marginTop="10dp"
@@ -58,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/number"
+        android:hint="@string/email_adress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="0dp" />

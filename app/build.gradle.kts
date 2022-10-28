@@ -3,6 +3,7 @@ plugins {
     id (Dependencies.Plugins.jetbrainsKotlin)
     id (Dependencies.Plugins.googleDaggerHilt)
     id (Dependencies.Plugins.kotlinKapt)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -43,6 +44,9 @@ dependencies {
     implementation (Dependencies.UI.androidxAppcompat)
     implementation (Dependencies.UI.androidMaterial)
     implementation (Dependencies.UI.androidConstraint)
+    implementation("com.google.firebase:firebase-firestore:24.0.2")
+    implementation("com.google.firebase:firebase-auth-ktx:21.1.0")
+    implementation("com.google.android.gms:play-services-auth:20.3.0")
     testImplementation (Dependencies.UI.junit)
     androidTestImplementation (Dependencies.UI.androidTest)
     androidTestImplementation (Dependencies.UI.androidTestEspresso)
@@ -87,6 +91,12 @@ dependencies {
     // Dagger-Hilt
     implementation (Dependencies.DaggerHilt.daggerHiltAndroid)
     kapt (Dependencies.DaggerHilt.daggerHiltCompiler)
+
+    //FireBase
+    implementation ("com.google.firebase:firebase-bom:31.0.2")
+    implementation ("com.google.firebase:firebase-auth-ktx")
+    implementation ("com.google.android.gms:play-services-auth:20.3.0")
+
 
     //CoreUI module
     implementation(project(":core_ui"))
