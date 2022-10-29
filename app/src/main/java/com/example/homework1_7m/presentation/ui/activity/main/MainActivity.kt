@@ -42,8 +42,6 @@ class MainActivity : AppCompatActivity() {
             )
             //  setupActionBarWithNavController(navController, appBarConfiguration)
             navView.setupWithNavController(navController)
-
-
             navController.addOnDestinationChangedListener { _, _, _ ->
                 if (navController.currentDestination?.id == R.id.firstFragment
                     || navController.currentDestination?.id == R.id.restorePasswordFragment

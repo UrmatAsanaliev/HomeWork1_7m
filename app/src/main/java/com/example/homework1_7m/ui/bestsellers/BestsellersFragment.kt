@@ -25,11 +25,26 @@ class BestsellersFragment : BaseFragment<FragmentBestsellersBinding>(FragmentBes
 
     private val viewModel: MainViewModel by viewModels()
     private lateinit var adapter : MainAdapter
+    private val list = ArrayList<Caps2>()
 
 
     override fun setupUI() {
         adapter = MainAdapter(this, arrayListOf())
         binding().rvKaps.adapter = adapter
+
+        val listForSize = ArrayList<Int>()
+        listForSize.add(2)
+
+        list.add(Caps2(1, "New Era",
+            "https://cdn1.ozone.ru/s3/multimedia-y/6063710134.jpg",
+            "new Era", 2300, "20.20.2002", "20.20.2020", 2350, 2, listForSize))
+        adapter.addData(list)
+
+
+        binding().imgBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
+
 
     }
 
@@ -43,15 +58,11 @@ class BestsellersFragment : BaseFragment<FragmentBestsellersBinding>(FragmentBes
                 viewModel.brand.collect {
                     when (it) {
                         is Resource.Success -> {
-                            binding().progressBar.visibility = View.GONE
                             it.data?.let { brands ->  }
-                            binding().progressBar.visibility = View.VISIBLE
                         }
                         is Resource.Loading -> {
-                            binding().progressBar.visibility = View.VISIBLE
                         }
                         is Resource.Error -> {
-                            binding().progressBar.visibility = View.GONE
                         }
                     }
                 }
