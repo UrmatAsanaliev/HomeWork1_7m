@@ -7,13 +7,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.update_profile.UpdateProfileFragment">
 
-    <TextView
+    <ImageView
         android:id="@+id/img_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/forty_dp"
         android:layout_marginStart="@dimen/twenty_dp"
-        android:textColor="@color/black"
+        android:src="@drawable/ic_chevronleft"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,12 +42,13 @@
 
 
     <EditText
+        android:textColorHint="@color/black"
         app:layout_constraintTop_toBottomOf="@id/nameHintEditText"
         android:layout_marginVertical="@dimen/forty_dp"
         android:id="@+id/emailHintTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/email"
+        android:hint="@string/email"
         android:layout_marginStart="@dimen/twenty_two_dp"
         android:textAlignment="center"
         android:textSize="@dimen/twenty_sp"
@@ -55,12 +56,13 @@
         tools:ignore="TextFields" />
 
     <EditText
+        android:textColorHint="@color/black"
         android:id="@+id/number_phoneHintTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawablePadding="@dimen/ten_dp"
         android:layout_marginVertical="@dimen/twenty_four_dp"
-        android:text="@string/number_phone"
+        android:hint="@string/number_phone"
         android:textSize="@dimen/twenty_sp"
         app:layout_constraintStart_toStartOf="@id/emailHintTextView"
         app:layout_constraintTop_toBottomOf="@id/emailHintTextView"
@@ -78,11 +80,13 @@
         android:src="@drawable/ic_phone"/>
 
     <EditText
+        android:inputType="phone"
+        android:textColorHint="@color/black"
         android:id="@+id/addressHintTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/twenty_two_dp"
-        android:text="@string/location"
+        android:hint="@string/location"
         android:textSize="@dimen/twenty_sp"
         app:layout_constraintStart_toStartOf="@id/number_phoneHintTextView"
         app:layout_constraintTop_toBottomOf="@id/number_phoneHintTextView" />
@@ -99,6 +103,7 @@
 
 
     <EditText
+        android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="@id/bg_profileImageView"
         app:layout_constraintTop_toTopOf="@id/bg_profileImageView"
         app:layout_constraintStart_toEndOf="@id/bg_profileImageView"
@@ -106,7 +111,7 @@
         android:id="@+id/nameHintEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/name"
+        android:hint="@string/name"
         android:textSize="@dimen/twenty_sp"
         />
 

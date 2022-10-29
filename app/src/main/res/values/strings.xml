@@ -17,7 +17,7 @@
     <string name="_2500">2500 сом</string>
     <string name="date_order">Дата заказа:</string>
     <string name="date_sent">Дата отправки:</string>
-    <string name="address">Адрес:</string>
+    <string name="address">Адрес</string>
     <string name="search">Поиск</string>
     <string name="_2021">Самая яркая коллекция 2021</string>
     <string name="popular_brends">Популярные Бренды</string>
@@ -36,11 +36,11 @@
     <string name="profile">Профиль</string>
     <string name="my_acc">Мой аккаунт</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="email">email</string>
-    <string name="name">имя</string>
+    <string name="email">Email</string>
+    <string name="name">Имя</string>
     <string name="my_orders">Мои заказы</string>
     <string name="phone_number">number phone</string>
-    <string name="location">адрес</string>
+    <string name="location">Aдрес</string>
     <string name="Редактироватьпрофиль">Редактировать профиль</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="_2500_сом">2500 сом</string>
