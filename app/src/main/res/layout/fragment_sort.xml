@@ -37,15 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/zero">
 
-        <View
-            android:layout_marginHorizontal="@dimen/sixteen_dp"
-            android:layout_marginTop="@dimen/sixteen_dp"
-            android:background="@color/dark_gray"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/txt_sort_text"
-            app:layout_constraintStart_toStartOf="@id/txt_sort_text"
-            android:layout_width="@dimen/zero"
-            android:layout_height="@dimen/four_dp"/>
+
 
         <TextView
             android:id="@+id/txt_sort_text"
@@ -87,6 +79,7 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_popular"
                     app:cornerRadius="@dimen/one_hundred_dp"
                     android:textAllCaps="false"
                     android:backgroundTint="@color/gray"
@@ -100,6 +93,7 @@
                     android:layout_height="wrap_content"/>
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_new"
                     app:cornerRadius="@dimen/one_hundred_dp"
                     android:textAllCaps="false"
                     android:backgroundTint="@color/gray"
@@ -122,6 +116,7 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_cheap"
                     app:cornerRadius="@dimen/one_hundred_dp"
                     android:textAllCaps="false"
                     android:paddingVertical="@dimen/twenty_dp"
@@ -136,6 +131,7 @@
 
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_expensive"
                     app:cornerRadius="@dimen/one_hundred_dp"
                     android:textAllCaps="false"
                     android:backgroundTint="@color/yellow"

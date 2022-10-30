@@ -33,6 +33,43 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165516794261:android:45c308419aec63a7017e9c",
+        "android_client_info": {
+          "package_name": "com.example.homework1_m7"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "165516794261-i59r2v9cr473o7mqp66fch395ckgkoal.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.homework1_m7",
+            "certificate_hash": "74ab90e4ae700e9441b927480de17b74260cffd3"
+          }
+        },
+        {
+          "client_id": "165516794261-d0p8ui936kn5jhgidds58gurqc8q8u0s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjNwMBUFlp4xwmrcAsaPUyu8pLvSRGvFU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "165516794261-d0p8ui936kn5jhgidds58gurqc8q8u0s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"

@@ -33,6 +33,8 @@ class InterFragment : BaseFragment<FragmentInterBinding>(FragmentInterBinding::i
     private val viewModel: InterViewModel by viewModels()
 
     override fun setupUI() {
+
+
       onClick()
         auth = Firebase.auth
 
@@ -52,8 +54,36 @@ class InterFragment : BaseFragment<FragmentInterBinding>(FragmentInterBinding::i
         val currentUser = auth.currentUser
         updateUI(currentUser)
     }
+
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+//        val googleCredential = oneTapClient.getSignInCredentialFromIntent(data)
+//        val idToken = googleCredential.googleIdToken
+//        when {
+//            idToken != null -> {
+//                // Got an ID token from Google. Use it to authenticate
+//                // with Firebase.
+//                val firebaseCredential = GoogleAuthProvider.getCredential(idToken, null)
+//                auth.signInWithCredential(firebaseCredential)
+//                    .addOnCompleteListener(this) { task ->
+//                        if (task.isSuccessful) {
+//                            // Sign in success, update UI with the signed-in user's information
+//                            Log.d(TAG, "signInWithCredential:success")
+//                            val user = auth.currentUser
+//                            updateUI(user)
+//                        } else {
+//                            // If sign in fails, display a message to the user.
+//                            Log.w(TAG, "signInWithCredential:failure", task.exception)
+//                            updateUI(null)
+//                        }
+//                    }
+//            }
+//            else -> {
+//                // Shouldn't happen.
+//                Log.d(TAG, "No ID token!")
+//            }
+//        }
         if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
@@ -61,7 +91,7 @@ class InterFragment : BaseFragment<FragmentInterBinding>(FragmentInterBinding::i
                 Log.d(TAG, "firebaseAuthWithGoogle:" + account.id)
                 firebaseAuthWithGoogle(account.idToken!!)
             } catch (e: ApiException) {
-                Log.w(TAG, "Google sign in failed", e)
+                    Log.w(TAG, "Google sign in failed", e)
             }
         }
     }
@@ -89,7 +119,7 @@ class InterFragment : BaseFragment<FragmentInterBinding>(FragmentInterBinding::i
         private const val TAG = "GoogleActivity"
         private const val RC_SIGN_IN = 9001
     }
-    fun onClick(){
+    private fun onClick(){
         binding().txtRegister.setOnClickListener{
             findNavController().navigate(R.id.thirdFragment)
         }
