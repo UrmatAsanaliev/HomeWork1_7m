@@ -99,4 +99,9 @@
         android:name="com.example.homework1_7m.ui.basket_origin.BasketOriginFragment"
         android:label="BasketOriginFragment"
         tools:layout="@layout/fragment_basket_origin"/>
+    <fragment
+        android:id="@+id/errorFragment"
+        android:name="com.example.homework1_7m.ui.error.ErrorFragment"
+        android:label="fragment_error"
+        tools:layout="@layout/fragment_error" />
 </navigation>

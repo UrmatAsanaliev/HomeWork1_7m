@@ -130,6 +130,7 @@
         tools:layout_editor_absoluteX="16dp" />
 
     <com.google.android.material.button.MaterialButton
+        android:paddingVertical="@dimen/six_dp"
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -139,5 +140,5 @@
         app:layout_constraintTop_toBottomOf="@id/addressHintTextView"
         android:layout_marginHorizontal="@dimen/twenty_eight_sp"
         android:backgroundTint="@color/yellow"
-        tools:text="Применить" />
+        android:text="@string/use" />
 </androidx.constraintlayout.widget.ConstraintLayout>

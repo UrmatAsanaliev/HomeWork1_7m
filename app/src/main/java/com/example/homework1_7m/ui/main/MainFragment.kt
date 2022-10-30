@@ -28,6 +28,33 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding:: inf
 
 
     override fun setupUI() {
+        binding().imgForthBrand.setOnClickListener {
+            findNavController().navigate(R.id.errorFragment)
+        }
+
+        binding().imgSecondBrand.setOnClickListener {
+            findNavController().navigate(R.id.errorFragment)
+        }
+
+        binding().imgThirdBrand.setOnClickListener {
+            findNavController().navigate(R.id.errorFragment)
+        }
+
+        binding().imgFirstBrand.setOnClickListener {
+            findNavController().navigate(R.id.errorFragment)
+        }
+
+
+        binding().cont.setOnClickListener {
+            findNavController().navigate(R.id.errorFragment)
+        }
+
+        binding().container2.setOnClickListener {
+            findNavController().navigate(R.id.errorFragment)
+        }
+
+
+
         binding().txtWatchAllBestsellers.setOnClickListener {
             findNavController().navigate(
                 R.id.bestsellersFragment)

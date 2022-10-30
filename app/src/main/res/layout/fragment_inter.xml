@@ -113,7 +113,7 @@
         app:layout_constraintStart_toStartOf="@+id/txt_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/registration"
+        android:text="@string/reset_password"
         android:textColor="@color/blue"
         app:layout_constraintTop_toTopOf="@+id/forgot_password"/>
 

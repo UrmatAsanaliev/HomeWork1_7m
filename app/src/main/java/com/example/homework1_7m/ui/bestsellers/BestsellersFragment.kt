@@ -37,7 +37,11 @@ class BestsellersFragment : BaseFragment<FragmentBestsellersBinding>(FragmentBes
 
         list.add(Caps2(1, "New Era",
             "https://cdn1.ozone.ru/s3/multimedia-y/6063710134.jpg",
-            "new Era", 2300, "20.20.2002", "20.20.2020", 2350, 2, listForSize))
+            "new Era", 2300, "20.20.2002", "20.20.2020", 2150, 2, listForSize))
+
+        list.add(Caps2(1, "Live",
+            "https://harbegon.ru/upload/5c0e236298e23-kepka-krasnaya-min.png",
+            "Live for live", 2100, "20.20.2002", "20.20.2020", 2000, 2, listForSize))
         adapter.addData(list)
 
 

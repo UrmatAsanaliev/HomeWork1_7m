@@ -15,8 +15,8 @@
         android:layout_marginHorizontal="@dimen/thirty_dp"
         android:id="@+id/img_back"
         android:background="@drawable/circle"
-        android:layout_width="@dimen/twenty_dp"
-        android:layout_height="@dimen/twenty_dp"/>
+        android:layout_width="@dimen/forty"
+        android:layout_height="@dimen/forty"/>
 
 
     <TextView
