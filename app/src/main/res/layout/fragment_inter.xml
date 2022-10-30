@@ -127,7 +127,7 @@
         android:layout_marginBottom="40dp"
         android:backgroundTint="@color/white"
         android:padding="20dp"
-        android:text="@string/registration"
+        android:text="@string/auth"
         android:textColor="@color/black"
         app:layout_constraintVertical_bias="0.3"
         app:cornerRadius="40dp"
