@@ -340,6 +340,7 @@
                 android:layout_height="wrap_content"/>
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_stocks"
                 android:layout_marginBottom="@dimen/twenty_dp"
                 android:layout_marginTop="@dimen/twelve_dp"
                 app:layout_constraintStart_toStartOf="@id/txt_stocks"

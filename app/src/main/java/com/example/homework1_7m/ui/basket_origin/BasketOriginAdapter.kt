@@ -31,11 +31,26 @@ class BasketOriginAdapter(
             this.brand = brand
             Glide.with(binding.imgCaps).load(brand.image)
                 .into(binding.imgCaps)
+
+            binding.imgHeart.setOnClickListener {
+                if (binding.imgHeart.visibility == View.VISIBLE) {
+                    binding.imgHeart.visibility = View.GONE
+                    binding.imgYellowLike.visibility = View.VISIBLE
+                }
+            }
+
+            binding.imgYellowLike.setOnClickListener {
+                if (binding.imgYellowLike.visibility == View.VISIBLE) {
+                    binding.imgHeart.visibility = View.VISIBLE
+                    binding.imgYellowLike.visibility = View.GONE
+                }
+            }
         }
 
         override fun onClick(p0: View?) {
             brand.id.let { listener.onClickedItem(it) }
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

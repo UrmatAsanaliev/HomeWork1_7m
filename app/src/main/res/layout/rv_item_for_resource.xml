@@ -55,7 +55,19 @@
         android:layout_height="wrap_content"/>
 
     <ImageView
+        android:id="@+id/img_like"
+        android:layout_marginEnd="@dimen/six_dp"
         android:src="@drawable/ic_like"
+        app:layout_constraintTop_toTopOf="@id/txt_name_model"
+        app:layout_constraintEnd_toEndOf="@id/img_model"
+        android:layout_width="@dimen/eighteen_dp"
+        android:layout_height="@dimen/eighteen_dp"/>
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/img_yellow_like"
+        android:layout_marginEnd="@dimen/six_dp"
+        android:src="@drawable/yellow_like"
         app:layout_constraintTop_toTopOf="@id/txt_name_model"
         app:layout_constraintEnd_toEndOf="@id/img_model"
         android:layout_width="@dimen/eighteen_dp"

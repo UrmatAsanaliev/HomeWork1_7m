@@ -3,12 +3,15 @@ package com.example.homework1_7m.ui.main
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.*
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.domain.brand.model.Brand
 import com.example.domain.caps.model.Caps
 import com.example.domain.caps.model.Caps2
+import com.example.homework1_7m.R
 import com.example.homework1_7m.databinding.ItemBestsellersBinding
 
 class MainAdapter(
@@ -24,7 +27,7 @@ class MainAdapter(
     inner class ViewHolder(
         private val listener: BrandItemListener,
         private val binding: ItemBestsellersBinding
-    ) : RecyclerView.ViewHolder(binding.root), View.OnClickListener {
+    ) : RecyclerView.ViewHolder(binding.root), OnClickListener {
         private lateinit var brand: Caps2
         init {
             itemView.setOnClickListener(this)
@@ -36,6 +39,20 @@ class MainAdapter(
             binding.rvItemForBestsellers.txtNameModel.text = brand.name
             Glide.with(binding.rvItemForBestsellers.imgModel).load(brand.image)
             .into(binding.rvItemForBestsellers.imgModel)
+
+            binding.rvItemForBestsellers.imgLike.setOnClickListener {
+                if (binding.rvItemForBestsellers.imgLike.visibility == VISIBLE) {
+                    binding.rvItemForBestsellers.imgLike.visibility = GONE
+                    binding.rvItemForBestsellers.imgYellowLike.visibility = VISIBLE
+                }
+            }
+
+            binding.rvItemForBestsellers.imgYellowLike.setOnClickListener {
+                if (binding.rvItemForBestsellers.imgYellowLike.visibility == VISIBLE) {
+                    binding.rvItemForBestsellers.imgLike.visibility = VISIBLE
+                    binding.rvItemForBestsellers.imgYellowLike.visibility = GONE
+                }
+            }
         }
 
         override fun onClick(p0: View?) {
